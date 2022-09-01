@@ -31,14 +31,14 @@ app.post("/", function(req, res) {
     items.push(item);
     res.redirect("/");
   }
-});
+}); //app.post takes input from the browser(user) and stores into the server.
 
 app.get("/work", function(req, res) {
   res.render("list", {
     listTitle: "Work List",
     newListItems: workItems
   });
-})
+}) //app.get fetches the data stored in the server and renders it to the desired route page.
 app.post("/work", function(req, res) {
   let item = req.body.newItem;
   workItems.push(item);
