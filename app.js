@@ -56,7 +56,7 @@ app.get("/", function(req, res) {
       });
       res.redirect("/"); //cause it only saves and doesnt show that as in else part
     } else {
-      res.render("list", {
+      res.render("partials/list.ejs", {
         listTitle: date.getDate(),
         newListItems: foundItems,
       });
@@ -82,7 +82,7 @@ app.get("/:customListName", function(req, res) {
         res.redirect("/" + customListName);
       } else {
         //console.log("Exists"); // show an existing list
-        res.render("list", {
+        res.render("partials/list.ejs", {
           listTitle: foundList.name,
           newListItems: foundList.items
         });
@@ -138,7 +138,7 @@ List.findOneAndUpdate({name: listName},{$pull:{items:{_id:checkedItemId}}},funct
 });
 
 app.get("/work", function(req, res) {
-  res.render("list", {
+  res.render("partials/list.ejs", {
     listTitle: "Work List",
     newListItems: workItems
   });
@@ -149,7 +149,7 @@ app.post("/work", function(req, res) {
   res.redirect("/work");
 })
 app.get("/about", function(req, res) {
-  res.render("about");
+  res.render("partials/about.ejs");
 })
 let port=process.env.PORT;
 if(port == null || port ==""){
