@@ -143,7 +143,7 @@ app.get("/work", function(req, res) {
     listTitle: "Work List",
     newListItems: workItems
   });
-})
+}) //app.get fetches the data stored in the server and renders it to the desired route page.
 app.post("/work", function(req, res) {
   let item = req.body.newItem;
   workItems.push(item);
