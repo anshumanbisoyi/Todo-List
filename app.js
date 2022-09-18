@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const date = require(__dirname + "/date.js"); //added to requirements
 const _=require("lodash");
 const app = express();
+app.use(express.static("public/")); //to add styles.css we create a public folder and tell express to use this.
 const url="mongodb+srv://admin-anshuman:test123@cluster0.dypbc9n.mongodb.net";
 
 
@@ -11,7 +12,7 @@ app.set('view engine', 'ejs'); //to be kept after the above code
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use("/public", express.static("public")); //to add styles.css we create a public folder and tell express to use this.
+
 mongoose.connect(url+"/todolistDB", {
   useNewUrlParser: true
 });
