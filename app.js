@@ -11,7 +11,7 @@ app.set('view engine', 'ejs'); //to be kept after the above code
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use(express.static("public")); //to add styles.css we create a public folder and tell express to use this.
+app.use("/public", express.static("public")); //to add styles.css we create a public folder and tell express to use this.
 mongoose.connect(url+"/todolistDB", {
   useNewUrlParser: true
 });
